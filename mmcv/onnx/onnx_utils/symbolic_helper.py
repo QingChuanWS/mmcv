@@ -40,6 +40,8 @@ def _parse_arg(value, desc):
         elif desc == 'is':
             return [int(v) for v in tval]
         elif desc == 'fs':
+            if(tval.dim() == 0):
+                return [tval.item()]
             return [float(v) for v in tval]
         else:
             raise RuntimeError(
